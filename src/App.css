@@ -362,8 +362,20 @@ width: 70%;
 .crypto-card{
   min-width: 250px;
 }
-.crypto-card .crypto-image{
+.crypto-card{
   width:35px;
+}
+.cropped-crypto-image{
+  height:35px;
+  width: 35px;
+  overflow: hidden;
+  position: relative;
+}
+.crypto-image{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
 }
 .select-timeperiod{
   width: 200px !important;

@@ -1,8 +1,25 @@
 import React from 'react'
+import {Row, Col, Select} from 'antd'
 
-function News() {
+
+function News({simplified}) {
+
   return (
-    <div>News</div>
+    <Row>
+      {!simplified && (
+        <Col>
+        <Select>
+
+        </Select>
+        </Col>
+      )
+      }
+      {
+        <Col>
+        </Col>
+
+      }
+    </Row>
   )
 }
 

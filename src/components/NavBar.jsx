@@ -1,20 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Menu } from "antd";
+import { Button, Menu, Typography, Avatar } from 'antd';
 import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons';
+import icon from '../images/cryptocurrency.png';
 export default function NavBar(){
+    const menuItems = [{
+        label: <Link to="/">Home</Link>,
+        icon: <HomeOutlined/>,
+        key: 'home'
+    },{
+        label: <Link to="/cryptocurrencies">Cryptocurrencies</Link>,
+        icon: <FundOutlined/>,
+        key: 'ryptocurrencies'
+    },{
+        label: <Link to="/exchanges">Exchanges</Link>,
+        icon: <MoneyCollectOutlined/>,
+        key: 'exchanges'
+    },{
+        label: <Link to="/news">News</Link>,
+        icon: <BulbOutlined/>,
+        key: 'news'
+    }]
     return (
         <div className="nav-container">
-            <Menu theme="dark">
-                <Menu.Item icon={<HomeOutlined />}>
-                    <Link to="/">Home</Link>
-                </Menu.Item>
-                <Menu.Item icon={<MoneyCollectOutlined />}>
-                    <Link to="/exchanges">Exchanges</Link>
-                </Menu.Item>
-                <Menu.Item icon={<BulbOutlined />}>
-                    <Link to="/news">News</Link>
-                </Menu.Item>
+            <div className="logo-container">
+                <Avatar src={icon} size="large" />
+            </div>
+            <Menu mode="vertical" theme="dark" items={menuItems}>
             </Menu>
         </div>
     );
