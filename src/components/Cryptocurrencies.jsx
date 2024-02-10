@@ -5,7 +5,7 @@ import { useGetCryptoQuery } from '../services/cryptoApi'
 import { Input, Row, Col, Card } from 'antd';
 function Cryptocurrencies({simplified}) {
     const count = simplified ? 10 : 100;
-    const {data:cryptoData, isSuccess} = useGetCryptoQuery(count);
+    const {data:cryptoData} = useGetCryptoQuery(count);
     const [searchTerm, setSearchTerm] = useState('');
     const coins = useMemo(() => {
         const coinsData = cryptoData?.data?.coins || [];
@@ -34,6 +34,7 @@ function Cryptocurrencies({simplified}) {
                     >
                         <Link
                             key={coin.uuid}
+                            to={`/crypto/${coin.uuid}`}
                         >
                             <Card
                                 title={coin.name}
