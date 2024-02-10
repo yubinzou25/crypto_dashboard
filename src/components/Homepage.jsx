@@ -1,10 +1,11 @@
 import React from 'react'
 import millify from 'millify';
-import { Typography, Row, Col, Statistic } from 'antd';
+import { Typography, Row, Col, Statistic, Flex } from 'antd';
 import { Link } from 'react-router-dom';
 import News from './News';
 import { useGetCryptoQuery } from '../services/cryptoApi';
 import Loader from './Loader';
+import Cryptocurrencies from './Cryptocurrencies';
 const { Title } = Typography;
 
 function Homepage() {
@@ -24,10 +25,13 @@ function Homepage() {
         <Col span={12}><Statistic title="Total 24h Volume" value={`$ ${millify(cryptoStats.total24hVolume)}`}/></Col>
        
     </Row>
-    <div className="home-heading-container">
-        <Title level={2} className='home-title'>Top 10 Cryptos In the world</Title>
-        <Title level={3} className="show-more"><Link to="/cryptocurrencies">Show more</Link></Title>
-    </div>
+        <Flex vertical>
+            <div className="home-heading-container">
+              <Title level={2} className='home-title'>Top 10 Cryptos In the world</Title>
+              <Title level={3} className="show-more"><Link to="/cryptocurrencies">Show more</Link></Title>
+            </div>
+          <Cryptocurrencies simplified/>
+        </Flex>
     <div className="home-heading-container">
         <Title level={2} className="home-title">Latest Crypto News</Title>
         <Title level={3} className="show-more"><Link to="/news">Show more</Link></Title>
